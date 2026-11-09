@@ -21,3 +21,14 @@ def view_expense():
         print("Expenses:")
         for e in expense:
             print(f"Name: {e['name']}, Amount: ₹{e['amount']}")
+
+def add_income(name, amount):
+    incomes.append({"name": name, "amount": amount})
+    print(f"Income '{name}' of amount ₹'{amount}' added successfully.")
+def view_income():
+    if not incomes:
+        print("No Incomes recorded.")
+    else: 
+        print("Incomes:")
+        for i in incomes:
+            print(f"Name: {i['name']}, Amount: ₹{i['amount']}")
