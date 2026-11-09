@@ -12,10 +12,11 @@ print("2. Delete Expense")
 print("3. View Expense")
 print("4. Add Income")
 print("5. View Income")
-print("6. Exit")
+print("6. Delete Income")
+print("7. Exit")
 
 while True:
-    choice = int(input("Enter your choice (1-6): "))
+    choice = int(input("Enter your choice (1-7): "))
     if choice == 1:
         name = input("Enter the name of the expense: ")
         amount = float(input("Enter the amount of the expense:"))
@@ -31,7 +32,10 @@ while True:
         ex.add_income(name, amount)
     elif choice == 5:
         ex.view_income()
-    elif choice == 6:    
+    elif choice == 6:
+        name = input("Enter the name of the income to delete: ")
+        ex.delete_income(name)
+    elif choice == 7:    
         print("Exiting the program. Goodbye!")
         break
     else: 

@@ -32,3 +32,14 @@ def view_income():
         print("Incomes:")
         for i in incomes:
             print(f"Name: {i['name']}, Amount: ₹{i['amount']}")
+def delete_income(name):
+    for i in incomes:
+        if i['name'] == name:
+            amount = i['amount']
+            incomes.remove(i)
+            print(f"Income {name} of amount ₹{amount} deleted successfully.")
+            print("Remaining Incomes: ")
+            for i in incomes:
+                print(f"Name: {i['name']}, Amount:{i['amount']}")
+            return
+    print(f"Income '{name}' not found.") 
