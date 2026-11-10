@@ -1,9 +1,8 @@
 expense = []
-incomes = []
 
 def add_expense(name, amount):
     expense.append({"name": name, "amount": amount})
-    print(f"Expense '{name}' of amount ₹{amount} added successfully.")
+    print(f"Expense '{name}' of amount ₹{amount} adexpded successfully.")
 
 def delete_expense(name):
     for e in expense:
@@ -21,25 +20,6 @@ def view_expense():
         print("Expenses:")
         for e in expense:
             print(f"Name: {e['name']}, Amount: ₹{e['amount']}")
+    total_expense = sum(i['amount'] for i in expense)
+    print(f"Total Expense: ₹{total_expense: .2f}")
 
-def add_income(name, amount):
-    incomes.append({"name": name, "amount": amount})
-    print(f"Income '{name}' of amount ₹'{amount}' added successfully.")
-def view_income():
-    if not incomes:
-        print("No Incomes recorded.")
-    else: 
-        print("Incomes:")
-        for i in incomes:
-            print(f"Name: {i['name']}, Amount: ₹{i['amount']}")
-def delete_income(name):
-    for i in incomes:
-        if i['name'] == name:
-            amount = i['amount']
-            incomes.remove(i)
-            print(f"Income {name} of amount ₹{amount} deleted successfully.")
-            print("Remaining Incomes: ")
-            for i in incomes:
-                print(f"Name: {i['name']}, Amount:{i['amount']}")
-            return
-    print(f"Income '{name}' not found.") 
