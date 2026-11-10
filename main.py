@@ -7,14 +7,17 @@ print("")
 
 
 while True:
-
-    print("1. Add Income/Expense")
-    print("2. Delete Income/expense")
-    print("3. View Income/expense") 
-    print("4. Financial Sumary")
-    print("5. Exit")
-    choice1 = int(input("Select a function: "))
-
+    try:
+        print("1. Add Income/Expense")
+        print("2. Delete Income/expense")
+        print("3. View Income/expense") 
+        print("4. Financial Sumary")
+        print("5. Exit")
+        choice1 = int(input("Select a function: "))
+    except ValueError:
+        print("Only enter the number of the task you want.")
+        continue
+    
     if choice1 == 1:
         while True:
             print("1. Add income: ")
@@ -32,7 +35,7 @@ while True:
                         incm.add_income(name, amount)
                         break
                     except ValueError:
-                        print("Enter the amount in floating value.")
+                        print("Invalid amount. Please enter a positive numeric value.")
                         continue
             elif choice2 == 2:
                 name = input("Enter the name of the expense to add: ")
@@ -45,13 +48,14 @@ while True:
                         ex.add_expense(name, amount)
                         break
                     except ValueError:
-                        print("Enter the amount in floating value.")
+                        print("Invalid amount. Please enter a positive numeric value.")
                         continue
             elif choice2 == 3:
                 print("Returning to Home.")
                 break
             else: 
                 print("Select a valid function.")
+
     elif choice1 == 2:
         while True: 
             print("1. Delete Income: ")
@@ -69,6 +73,7 @@ while True:
                     break
             else: 
                 print("Select a valid function.")
+
     elif choice1 == 3:
         while True:
             print("1. View Income")
@@ -84,6 +89,7 @@ while True:
                 break
             else: 
                 print("Select a valid function.")
+
     elif choice1 == 4:
         while True:
             print("1. View Balance")
@@ -93,11 +99,11 @@ while True:
             if choice2 == 1:
                 total_income = calc.total_income()
                 total_expense = calc.total_expense()
-                Balance = total_income - total_expense
+                balance = total_income - total_expense
                 print("--------Financial Summary-------")
                 print(f"Total Income: {total_income: .2f}")
                 print(f"Total Expense: {total_expense: .2f}")
-                print(f"Remaining Balance: {Balance: .2f}")
+                print(f"Remaining Balance: {balance: .2f}")
             elif choice2 == 2:
                 avg_exp = calc.average_expense()
                 print(f"Average Expense: {avg_exp: .4f}")
@@ -109,6 +115,7 @@ while True:
     elif choice1 == 5:
         print("Exiting the Application.")
         break
+    
     else:
         print("Select a valid function.")
             
