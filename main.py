@@ -20,10 +20,14 @@ while True:
     
     if choice1 == 1:
         while True:
-            print("1. Add income: ")
-            print("2. Add expense: ")
-            print("3. Go back")
-            choice2 = int(input("Select a function and enter its number: "))
+            try:
+                print("1. Add income: ")
+                print("2. Add expense: ")
+                print("3. Go back")
+                choice2 = int(input("Select a function and enter its number: "))
+            except ValueError:
+                print("Only enter the number of the task you want.")
+                continue
             if choice2 == 1:
                 name = input("Enter the name of the income to add: ")
                 while True:
@@ -58,10 +62,14 @@ while True:
 
     elif choice1 == 2:
         while True: 
-            print("1. Delete Income: ")
-            print("2. Delete Expense: ")
-            print("3 Go Back")
-            choice2 =  int(input("Select a function and enter its number: "))
+            try:
+                print("1. Delete Income: ")
+                print("2. Delete Expense: ")
+                print("3 Go Back")
+                choice2 =  int(input("Select a function and enter its number: "))
+            except ValueError:
+                print("Only enter the number of the task you want.")
+                continue
             if choice2 == 1:
                     name = input("Enter the name of the income to delete: ")
                     incm.delete_income(name)
@@ -76,10 +84,14 @@ while True:
 
     elif choice1 == 3:
         while True:
-            print("1. View Income")
-            print("2. View Expense")
-            print("3. Go Back")
-            choice2 = int(input("Select a function and enter its number: "))
+            try:
+                print("1. View Income")
+                print("2. View Expense")
+                print("3. Go Back")
+                choice2 = int(input("Select a function and enter its number: "))
+            except ValueError:
+                print("Only enter the number of the task you want.")
+                continue
             if choice2 == 1:
                 incm.view_income()
             elif choice2 == 2:
@@ -92,10 +104,14 @@ while True:
 
     elif choice1 == 4:
         while True:
-            print("1. View Balance")
-            print("2. Average Expense")
-            print("3. Go Back")
-            choice2 = int(input("Select a function and enter its number: "))
+            try: 
+                print("1. View Balance")
+                print("2. Average Expense")
+                print("3. Go Back")
+                choice2 = int(input("Select a function and enter its number: "))
+            except ValueError:
+                print("Only enter the number of the task you want.")
+                continue
             if choice2 == 1:
                 total_income = calc.total_income()
                 total_expense = calc.total_expense()
