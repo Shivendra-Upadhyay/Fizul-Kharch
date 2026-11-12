@@ -18,7 +18,16 @@ def average_expense():
     if not ex.expense:
         print("No expense found")
         return 0
-    total_expense = sum(e['amount'] for e in ex.expense)
+    total = total_expense()
     count = len(ex.expense)
-    average = total_expense / count
+    average = total / count
+    return average
+
+def average_income():
+    if not incm.incomes:
+        print("No incomes found")
+        return 0
+    total = total_income()
+    count = len(incm.incomes)
+    average = total / count
     return average
